@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Monoton&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+:root {
+  --bgColor: #333;
+  --textPrimary: #fff;
+  --textSecondary: #666;
+  --primayColor: #fd4;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--bgColor);
+  color: var(--textPrimary);
+  font-size: 1.4rem;
+}
+
+main {
+}
+
+h1 {
+  color: var(--primayColor);
+}
+
+h1 svg {
+  width: 40px;
+  fill: var(--primayColor);
+}
+
+#header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 20px 6px 30px;
+}
+
+#buttons {
+  text-align: right;
+}
+
+#info {
+  color: var(--primayColor);
+}
+
+button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 5px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+div#game {
+  line-height: 35px;
+  height: 105px;
+  overflow: hidden;
+  position: relative;
+}
+
+div#game:focus {
+  outline: 0;
+}
+
+#words {
+  filter: blur(5px);
+  color: var(--textSecondary);
+}
+
+#game:focus #words {
+  filter: blur(0);
+}
+
+#focus-error {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  padding-top: 35px;
+}
+
+#game:focus #focus-error {
+  display: none;
+}
+
+div.word {
+  display: inline-block;
+  font-family: "Roboto", monospace;
+  margin: 0 5px;
+}
+
+.letter.correct {
+  color: #fff;
+}
+
+.letter.incorrect {
+  color: #f55;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: -1;
+  }
+}
+
+#cursor {
+  display: none;
+  width: 2px;
+  height: 1.2rem;
+  background-color: var(--primayColor);
+  position: fixed;
+  top: 178px;
+  left: 10px;
+  animation: blink 0.3s infinite;
+}
+
+#game:focus #cursor {
+  display: inline-block;
+}
+
+#game.over #words {
+  opacity: 0.5;
+  filter: blur(0px);
+}
+
+#game.over:focus #cursor {
+  display: none;
+}
+
+#game.over #focus-error {
+  display: none;
+}
+
+/*
+
+---------Learned----------
+
+  :root{}  -- to declare variables
+  var(--variableName)  -- use the declared variables
+  outline: 0  -- gives a outline for an element
+  filter: blur()  -- blurs the text context 
+  focus  -- focus on determined element
+  @keyframes animationName{} --  blink--opacity
+
+*/
